@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <!-- Input Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Masukkan email" required>
+                <div class="error-message" id="emailError">Email atau password salah</div>
+            </div>
+
+            <!-- Input Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password" required>
+                <div class="error-message" id="passwordError">Email atau password salah</div>
+            </div>
+
+            <!-- Tombol Login -->
+            <button type="submit" class="btn-login">Masuk</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            // Mencegah form refresh halaman
+            event.preventDefault();
+
+            // Ambil nilai dari input
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Kredensial yang benar
+            const emailBenar = "madenharyo@gmail.com";
+            const passwordBenar = "maden.2727";
+
+            // Cek email dan password
+            if (email === emailBenar && password === passwordBenar) {
+                alert('Login berhasil! Selamat datang!');
+            } else {
+                // Tampilkan pesan error
+                document.getElementById('emailError').style.display = 'block';
+                document.getElementById('passwordError').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
